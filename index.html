@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>API Tester</title>
+</head>
+<body>
+  <h1>API Tester</h1>
+
+  <button onclick="callApi('/health')">Check Health</button>
+  <button onclick="callApi('/users')">Get Users</button>
+
+  <pre id="response" style="background: #f4f4f4; padding: 10px; border: 1px solid #ccc;"></pre>
+
+  <script>
+    async function callApi(endpoint) {
+      try {
+        const res = await fetch(endpoint);
+        const contentType = res.headers.get("content-type");
+
+        let data;
+        if (contentType && contentType.includes("application/json")) {
+          data = await res.json();
+        } else {
+          data = await res.text();
+        }
+
+        document.getElementById('response').textContent =
+          typeof data === 'object' ? JSON.stringify(data, null, 2) : data;
+
+      } catch (err) {
+        document.getElementById('response').textContent = '❌ Error: ' + err.message;
+      }
+    }
+  </script>
+
+</body>
+</html>
