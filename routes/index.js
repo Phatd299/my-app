@@ -12,7 +12,7 @@ router.get('/health', (req, res) => {
 });
 
 // Sample data route
-router.get('/api/users', (req, res) => {
+router.get('/users', (req, res) => {
   const users = [
     { id: 1, name: 'Alice' },
     { id: 2, name: 'Bob' },
