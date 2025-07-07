@@ -4,7 +4,7 @@ pipeline {
   environment {
     APP_NAME = "my-node-app"
     EC2_USER = "ec2-user"                     // Or "ubuntu" for Ubuntu AMIs
-    EC2_HOST = "YOUR.EC2.PUBLIC.IP"           // Replace with your actual EC2 IP
+    EC2_HOST = "47.129.154.101"           // Replace with your actual EC2 IP
     SSH_CREDENTIAL_ID = "ec2-ssh"             // The ID of your Jenkins SSH credential
     EC2_APP_DIR = "~/app"
   }
@@ -13,7 +13,7 @@ pipeline {
     stage('Checkout Code') {
       steps {
         echo '📥 Cloning repository...'
-        git 'https://github.com/YOUR_USERNAME/YOUR_REPO.git'
+        git 'https://github.com/Phatd299/my-app'
       }
     }
 
