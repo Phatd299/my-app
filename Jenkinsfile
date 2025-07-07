@@ -13,7 +13,7 @@ pipeline {
     stage('Checkout Code') {
       steps {
         echo '📥 Cloning repository...'
-        git 'https://github.com/Phatd299/my-app'
+        git 'https://github.com/Phatd299/my-app.git'
       }
     }
 
